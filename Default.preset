@@ -80,7 +80,7 @@ DisableRemoteDesktop            # EnableRemoteDesktop
 # DisableUpdateDriver           # EnableUpdateDriver
 DisableUpdateMSProducts         # EnableUpdateMSProducts
 EnableUpdateAutoDownload        # DisableUpdateAutoDownload
-#DisableUpdateRestart            # EnableUpdateRestart
+#DisableUpdateRestart           # EnableUpdateRestart
 DisableMaintenanceWakeUp        # EnableMaintenanceWakeUp
 DisableSharedExperiences        # EnableSharedExperiences
 EnableClipboardHistory          # DisableClipboardHistory
@@ -117,7 +117,7 @@ EnableFileDeleteConfirm         # DisableFileDeleteConfirm
 HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
 # HideTaskView                  # ShowTaskView
 # ShowSmallTaskbarIcons         # ShowLargeTaskbarIcons
-SetTaskbarCombineAlways       # SetTaskbarCombineNever        # SetTaskbarCombineWhenFull
+SetTaskbarCombineAlways         # SetTaskbarCombineNever        # SetTaskbarCombineWhenFull
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
 ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
@@ -147,7 +147,7 @@ ShowHiddenFiles                 # HideHiddenFiles
 # ShowSuperHiddenFiles          # HideSuperHiddenFiles
 # ShowEmptyDrives               # HideEmptyDrives
 # ShowFolderMergeConflicts      # HideFolderMergeConflicts
-EnableNavPaneExpand             # DisableNavPaneExpand
+# DisableNavPaneExpand          # EnableNavPaneExpand
 # ShowNavPaneAllFolders         # HideNavPaneAllFolders
 EnableFldrSeparateProcess       # DisableFldrSeparateProcess
 DisableRestoreFldrWindows       # EnableRestoreFldrWindows
@@ -157,7 +157,7 @@ DisableRestoreFldrWindows       # EnableRestoreFldrWindows
 HideSyncNotifications           # ShowSyncNotifications
 HideRecentShortcuts             # ShowRecentShortcuts
 SetExplorerThisPC               # SetExplorerQuickAccess
-# HideQuickAccess                 # ShowQuickAccess
+# HideQuickAccess               # ShowQuickAccess
 # HideRecycleBinFromDesktop     # ShowRecycleBinOnDesktop
 # ShowThisPCOnDesktop           # HideThisPCFromDesktop
 # ShowUserFolderOnDesktop       # HideUserFolderFromDesktop
