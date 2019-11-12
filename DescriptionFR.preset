@@ -1,11 +1,12 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Default preset
-# Author    : Disassembler <disassembler@dasm.cz>
-# Version   : v3.7, 2019-05-31
-# Source    : https://github.com/Disassembler0/Win10-Initial-Setup-Script
+# Author: Disassembler <disassembler@dasm.cz>
+# Version: v3.8, 2019-09-11
+# Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 
-#https://www.pcsoleil.fr/optimisation-de-windows-10-grace-a-win10-initial-setup-script/
+# Thanks to this guy for the description :
+# https://www.pcsoleil.fr/optimisation-de-windows-10-grace-a-win10-initial-setup-script/
 
 ### Require administrator privileges ### 
 RequireAdmin
