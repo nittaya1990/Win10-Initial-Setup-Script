@@ -208,6 +208,8 @@ DisableMediaSharing          # EnableMediaSharing          # Quand le partage de
 # UninstallPowerShellV2      # InstallPowerShellV2         # PowerShell 2.0 est vieux… Windows 10 est désormais équipé d’une version plus récente on peut le supprimer.
 # InstallLinuxSubsystem      # UninstallLinuxSubsystem     # Le sous-système Linux pour les barbus, on peut laisser par défaut ou décommenter Uninstall pour supprimer l’option. Permet d’installer Linux depuis le Windows Store (ex Ubuntu).
 # InstallHyperV              # UninstallHyperV             # Fonctionnalités de virtualisation qui permet de faire tourner un système d’exploitation en parallèle à Windows 10. N’est pas disponible sous Windows 10 Familial. J’utilise VMware donc je n’en ai pas besoin.
+# UninstallSSHClient         # InstallSSHClient            # unset
+# InstallSSHServer           # UninstallSSHServer          # unset
 # InstallNET23               # UninstallNET23              # Je laisse tel quel car selon sa configuration on peut en avoir besoin, surtout pour les vieilles applications Windows 7. En mode Uninstall cela supprime toutes versions 2, 3 et 3.5 de Microsoft.NET.
 SetPhotoViewerAssociation    # UnsetPhotoViewerAssociation # Vous n’aimez pas le nouveau visionneur de photo de Windows 10 ? Moi aussi ; je préfère l’ancienne version, qui semble plus rapide.
 AddPhotoViewerOpenWith       # RemovePhotoViewerOpenWith   # Rajoute dans le menu contextuel d’une image (au clic droit donc) un menu pour ouvrir l’image avec l’ancienne visionneuse de photo Windows.
