@@ -779,15 +779,15 @@ Function EnableScriptHost {
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows Script Host\Settings" -Name "Enabled" -ErrorAction SilentlyContinue
 }
 
-# Enable strong cryptography for .NET Framework (version 4 and above)
-# https://stackoverflow.com/questions/36265534/invoke-webrequest-ssl-fails
+# Enable strong cryptography for old versions of .NET Framework (4.6 and newer have strong crypto enabled by default)
+# https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#schusestrongcrypto
 Function EnableDotNetStrongCrypto {
 	Write-output "Enabling .NET strong cryptography..."
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319" -Name "SchUseStrongCrypto" -Type DWord -Value 1
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" -Name "SchUseStrongCrypto" -Type DWord -Value 1
 }
 
-# Disable strong cryptography for .NET Framework (version 4 and above)
+# Disable strong cryptography for old versions of .NET Framework
 Function DisableDotNetStrongCrypto {
 	Write-output "Disabling .NET strong cryptography..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319" -Name "SchUseStrongCrypto" -ErrorAction SilentlyContinue
@@ -1236,6 +1236,19 @@ Function EnableMaintenanceWakeUp {
 	Write-Output "Enabling nightly wake-up for Automatic Maintenance..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "AUPowerManagement" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" -Name "WakeUp" -ErrorAction SilentlyContinue
+}
+
+# Disable Automatic Restart Sign-on - Applicable since 1903
+# See https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/winlogon-automatic-restart-sign-on--arso-
+Function DisableAutoRestartSignOn {
+	Write-Output "Disabling Automatic Restart Sign-on..."
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DisableAutomaticRestartSignOn" -Type DWord -Value 1
+}
+
+# Enable Automatic Restart Sign-on - Applicable since 1903
+Function EnableAutoRestartSignOn {
+	Write-Output "Enabling Automatic Restart Sign-on..."
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DisableAutomaticRestartSignOn" -ErrorAction SilentlyContinue
 }
 
 # Disable Shared Experiences - Applicable since 1703. Not applicable to Server
@@ -3044,6 +3057,7 @@ function UninstallThirdPartyBloat {
 	Get-AppxPackage "king.com.CandyCrushFriends" | Remove-AppxPackage
 	Get-AppxPackage "king.com.CandyCrushSaga" | Remove-AppxPackage
 	Get-AppxPackage "king.com.CandyCrushSodaSaga" | Remove-AppxPackage
+	Get-AppxPackage "king.com.FarmHeroesSaga" | Remove-AppxPackage
 	Get-AppxPackage "LenovoCorporation.LenovoID" | Remove-AppxPackage
 	Get-AppxPackage "LenovoCorporation.LenovoSettings" | Remove-AppxPackage
 	Get-AppxPackage "Nordcurrent.CookingFever" | Remove-AppxPackage
@@ -3094,6 +3108,7 @@ Function InstallThirdPartyBloat {
 	Get-AppxPackage -AllUsers "king.com.CandyCrushFriends" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 	Get-AppxPackage -AllUsers "king.com.CandyCrushSaga" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 	Get-AppxPackage -AllUsers "king.com.CandyCrushSodaSaga" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+	Get-AppxPackage -AllUsers "king.com.FarmHeroesSaga" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 	Get-AppxPackage -AllUsers "LenovoCorporation.LenovoID" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 	Get-AppxPackage -AllUsers "LenovoCorporation.LenovoSettings" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 	Get-AppxPackage -AllUsers "Nordcurrent.CookingFever" | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
@@ -3266,6 +3281,20 @@ Function EnableMediaSharing {
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventLibrarySharing" -ErrorAction SilentlyContinue
 }
 
+# Enable Developer Mode
+Function EnableDeveloperMode {
+	Write-Output "Enabling Developer Mode..."
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowDevelopmentWithoutDevLicense" -Type DWord -Value 1
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowAllTrustedApps" -Type DWord -Value 1
+}
+
+# Disable Developer Mode
+Function DisableDeveloperMode {
+	Write-Output "Disabling Developer Mode..."
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowDevelopmentWithoutDevLicense" -ErrorAction SilentlyContinue
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowAllTrustedApps" -ErrorAction SilentlyContinue
+}
+
 # Uninstall Windows Media Player
 Function UninstallMediaPlayer {
 	Write-Output "Uninstalling Windows Media Player..."
@@ -3325,24 +3354,16 @@ Function InstallPowerShellV2 {
 }
 
 # Install Linux Subsystem - Applicable since Win10 1607 and Server 1709
+# Note: 1607 requires also EnableDevelopmentMode for WSL to work
 # For automated Linux distribution installation, see https://docs.microsoft.com/en-us/windows/wsl/install-on-server
 Function InstallLinuxSubsystem {
 	Write-Output "Installing Linux Subsystem..."
-	If ([System.Environment]::OSVersion.Version.Build -eq 14393) {
-		# 1607 needs developer mode to be enabled
-		Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowDevelopmentWithoutDevLicense" -Type DWord -Value 1
-		Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowAllTrustedApps" -Type DWord -Value 1
-	}
 	Enable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 }
 
 # Uninstall Linux Subsystem - Applicable since Win10 1607 and Server 1709
 Function UninstallLinuxSubsystem {
 	Write-Output "Uninstalling Linux Subsystem..."
-	If ([System.Environment]::OSVersion.Version.Build -eq 14393) {
-		Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowDevelopmentWithoutDevLicense" -Type DWord -Value 0
-		Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" -Name "AllowAllTrustedApps" -Type DWord -Value 0
-	}
 	Disable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 }
 
