@@ -1,7 +1,7 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Default preset
 # Author: Disassembler <disassembler@dasm.cz>
-# Version: v3.8, 2019-09-11
+# Version: v3.9, 2020-04-02
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 
@@ -85,6 +85,7 @@ EnableUpdateMSProducts       # DisableUpdateMSProducts     # En Disable Windows 
 # DisableUpdateAutoDownload  # EnableUpdateAutoDownload    # En Enable Les mises à jour de Windows seront simplement notifiées : Pour télécharger et installer il faudra confirmer.
 DisableUpdateRestart         # EnableUpdateRestart         # unset
 DisableMaintenanceWakeUp     # EnableMaintenanceWakeUp     # Si votre PC est en veille et que d’importantes mises à jour doivent se faire, votre PC va “se réveiller” automatiquement. C’est embêtant pour ceux qui ont leur PC dans leur chambre et qui préfèrent le mettre en veille pour bénéficier d’un temps de démarrage raccourcis; Imaginez leur PC démarrer tout seul la nuit.
+# DisableAutoRestartSignOn   # EnableAutoRestartSignOn
 DisableSharedExperiences     # EnableSharedExperiences     # Service très large qui permet de commencer « quelque chose » sur son PC et de pouvoir facilement le continuer sur un autre PC ou Smartphone. Lié à un compte Microsoft. Je désactive par soucis de confidentialité au cas où on le volerait. Fonction disponible à partie de Windows 10 1703 (Creator Update) émise le 11 Avril 2017.
 # EnableClipboardHistory     # DisableClipboardHistory     # Windows 10 October 2018 autrement nommé Windows 10 1809 a établi un nouveau traceur, dédié au presse-papier et qui répertorie tous vos “copier-coller”. Cela concerne aussi les images! Le listing de vos copier-coller est accessible en cliquant sur la Touche Windows + V. Mais attention : si vous copiez-collez votre mot de passe pour le rentrer dans un service en ligne, il restera durablement dans votre presse papier! Verrouillez votre session (Win+L) quand vous vous absentez! Étant fainéant j’ai un besoin vital de cette fonction.
 DisableAutoplay              # EnableAutoplay              # L’autoPlay sert à ouvrir automatiquement un fichier multimédia, les importer/exporter dans votre dossier Images ou Vidéos, ou lancer l’explorateur Windows lorsqu’on connecte un clé USB ou autre volume de stockage externe.
@@ -202,10 +203,14 @@ DisableEdgeShortcutCreation  # EnableEdgeShortcutCreation  # Disable : Après ce
 DisableIEFirstRun            # EnableIEFirstRun            # Vous utilisez toujours Internet Explorer ? Et bien à son tout premier lancement vous savez qu’il vous pose quelques questions, et bien là ce ne sera plus le cas.
 DisableFirstLogonAnimation   # EnableFirstLogonAnimation   # A l’installation de Windows ou lors d’une mise à jour majeure, Windows vous dis “Bonjour!! Comme ça va bien?!”. Personnellement j’aime bien le texte “Laissez nous tout”. plus d’infos ici.
 DisableMediaSharing          # EnableMediaSharing          # Quand le partage de contenu multimédia est activé sur le PC 1, les autres PC sur le même réseau local verront en parcourant le réseau local une icône nommée “périphérique média” et le nom du PC qui diffuse. Au double clic les médias partagés du PC 1 seront consultables. Avec Onedrive et autres services de partage on n’a plus besoin de cette fonctionnalité.
+# EnableDeveloperMode        # DisableDeveloperMode        # Active le mode developer qui est dans les paramètres windows
 # UninstallMediaPlayer       # InstallMediaPlayer          # Désinstalle Windows Media player : La vieille version qui ne lit pas grand chose et déjà présente sous Windows XP.
 # UninstallInternetExplorer  # InstallInternetExplorer     # L’ancêtre, Mais il vaut mieux laisser tel quel, certains services en ligne, surtout des services de niche dédiés aux professionnels ne sont compatibles qu’avec IE.
 # UninstallWorkFolders       # InstallWorkFolders          # Dossiers partagés et synchronisés en réseau local et via internet, axés environnement Pro avec serveur Windows, certificat SSL, droits active directory… En environnement familial on utilisera plutôt des logiciels comme DropBox ou OneDrive pour ça. Plus d’informations sur le Dossiers de travail ici. https://docs.microsoft.com/fr-fr/windows-server/storage/work-folders/work-folders-overview
+# UninstallHelloFace         # InstallHelloFace            # 
+# UninstallMathRecognizer    # InstallMathRecognizer       # 
 # UninstallPowerShellV2      # InstallPowerShellV2         # PowerShell 2.0 est vieux… Windows 10 est désormais équipé d’une version plus récente on peut le supprimer.
+# UninstallPowerShellISE     # InstallPowerShellISE        # Désinstaller l'ISE Powershell
 # InstallLinuxSubsystem      # UninstallLinuxSubsystem     # Le sous-système Linux pour les barbus, on peut laisser par défaut ou décommenter Uninstall pour supprimer l’option. Permet d’installer Linux depuis le Windows Store (ex Ubuntu).
 # InstallHyperV              # UninstallHyperV             # Fonctionnalités de virtualisation qui permet de faire tourner un système d’exploitation en parallèle à Windows 10. N’est pas disponible sous Windows 10 Familial. J’utilise VMware donc je n’en ai pas besoin.
 # UninstallSSHClient         # InstallSSHClient            # unset
