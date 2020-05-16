@@ -5,9 +5,6 @@
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 
-# Thanks to this guy for the description :
-# https://www.pcsoleil.fr/optimisation-de-windows-10-grace-a-win10-initial-setup-script/
-
 ### Require administrator privileges ### 
 RequireAdmin
 
@@ -129,12 +126,14 @@ DisableSearchAppInStore      # EnableSearchAppInStore      # Lorsque on essaie d
 DisableNewAppPrompt          # EnableNewAppPrompt          # Assez lié au précédent réglage : A l’ouverture d’un fichier donc l’extension est inconnue, une fenêtre s’affiche proposant d’aller sur le Windows Store pour télécharger une Apps capable d’ouvrir ce fichier.
 # HideRecentlyAddedApps      # ShowRecentlyAddedApps       # Mets en avant les applications nouvellement installées dans le menu Démarrer .
 # HideMostUsedApps           # ShowMostUsedApps            # Mets en tête de liste les applications souvent utilisées dans le menu Démarrer .
+SetWinXMenuPowerShell        # SetWinXMenuCmd              # Le raccourci win + x qui a le PS en default shell
 # SetControlPanelSmallIcons  # SetControlPanelLargeIcons   # SetControlPanelCategories # C’est le réglage de la taille des icônes du nouveau panneau de configuration Windows 10 (renommé simplement “Paramètres”. l’option Categories est celle par défaut : Elle regroupe les réglages par catégories.
 DisableShortcutInName        # EnableShortcutInName        # Affiche « Raccourci vers ... » sur les icônes du bureau, s’il s’agit de raccourcis.
 # HideShortcutArrow          # ShowShortcutArrow           # Affiche l’icône de petite flèche sur les éléments du bureau s’il s’agit de raccourcis.
 SetVisualFXPerformance       # SetVisualFXAppearance       # Différents réglages de l’affichage qui permettent de moins solliciter l’ordinateur. Ex : Pas d’effet d’ombrage, pas de vue du contenu d’une fenêtre lors de son déplacement, etc... Le mode Performance (SetVisualFXPerformance) est bien sur recommandé !
 # EnableTitleBarColor        # DisableTitleBarColor        # La coloration des fenêtres s’harmonise avec la couleur dominante du papier peint.
-# EnableDarkTheme            # DisableDarkTheme            # Vous allez souvent sur le réseau Thor et sur les interfaces d’administration des banques pour voler des N° de CB ? Activez le Dark Theme : L’explorateur et les menus de réglage de Windows seront à dominante sombre.
+SetAppsDarkMode              # SetAppsLightMode            # Vous allez souvent sur le réseau Thor et sur les interfaces d’administration des banques pour voler des N° de CB ? Activez le Dark Theme : L’explorateur et les menus de réglage de Windows seront à dominante sombre.
+SetSystemDarkMode            # SetSystemLightMode          # unset
 # AddENKeyboard              # RemoveENKeyboard            # Rajoute un raccourci vers l’activation du clavier QWERTY dans la barre d’outils.
 # EnableNumlock              # DisableNumlock              # Très utile à activer : Le mode VERR NUM du pavé numérique est activé en mode Enable... Mais il me semble que l’activation saute si dans le BIOS (ou UEFI) cet option est aussi activée.
 # DisableEnhPointerPrecision # EnableEnhPointerPrecision   # Enable consiste à améliorer la précision du pointeur de la souris; ça “lisse” ses déplacements. Moi ça me sert mais peut-être pas pour un gamer ?
@@ -167,6 +166,7 @@ ShowThisPCOnDesktop          # HideThisPCFromDesktop       # Affiche le raccourc
 # ShowUserFolderOnDesktop    # HideUserFolderFromDesktop   # Je trouve pratique d’afficher sur le bureau mon dossier personnel global qui contient tous mes sous-dossiers importants (et pas seulement la bibliothèque qui est un dossier virtuel). D’ailleurs je trouve simpliste l’option par défaut d’afficher les Bibliothèques, il y manque un dossier tout bête pourtant, mais important ; Les Téléchargements.
 # ShowControlPanelOnDesktop  # HideControlPanelFromDesktop # Affiche le raccourcis vers les paramètres de Windows sur le bureau.
 # ShowNetworkOnDesktop       # HideNetworkFromDesktop      # unset
+# HideDesktopIcons           # ShowDesktopIcons            # unset
 # ShowBuildNumberOnDesktop   # HideBuildNumberFromDesktop  # unset
 HideDesktopFromThisPC        # ShowDesktopInThisPC         # unset
 # HideDesktopFromExplorer    # ShowDesktopInExplorer       # unset
@@ -207,14 +207,15 @@ DisableMediaSharing          # EnableMediaSharing          # Quand le partage de
 # UninstallMediaPlayer       # InstallMediaPlayer          # Désinstalle Windows Media player : La vieille version qui ne lit pas grand chose et déjà présente sous Windows XP.
 # UninstallInternetExplorer  # InstallInternetExplorer     # L’ancêtre, Mais il vaut mieux laisser tel quel, certains services en ligne, surtout des services de niche dédiés aux professionnels ne sont compatibles qu’avec IE.
 # UninstallWorkFolders       # InstallWorkFolders          # Dossiers partagés et synchronisés en réseau local et via internet, axés environnement Pro avec serveur Windows, certificat SSL, droits active directory… En environnement familial on utilisera plutôt des logiciels comme DropBox ou OneDrive pour ça. Plus d’informations sur le Dossiers de travail ici. https://docs.microsoft.com/fr-fr/windows-server/storage/work-folders/work-folders-overview
-# UninstallHelloFace         # InstallHelloFace            # 
-# UninstallMathRecognizer    # InstallMathRecognizer       # 
+# UninstallHelloFace         # InstallHelloFace            # unset
+# UninstallMathRecognizer    # InstallMathRecognizer       # unset
 # UninstallPowerShellV2      # InstallPowerShellV2         # PowerShell 2.0 est vieux… Windows 10 est désormais équipé d’une version plus récente on peut le supprimer.
 # UninstallPowerShellISE     # InstallPowerShellISE        # Désinstaller l'ISE Powershell
 # InstallLinuxSubsystem      # UninstallLinuxSubsystem     # Le sous-système Linux pour les barbus, on peut laisser par défaut ou décommenter Uninstall pour supprimer l’option. Permet d’installer Linux depuis le Windows Store (ex Ubuntu).
 # InstallHyperV              # UninstallHyperV             # Fonctionnalités de virtualisation qui permet de faire tourner un système d’exploitation en parallèle à Windows 10. N’est pas disponible sous Windows 10 Familial. J’utilise VMware donc je n’en ai pas besoin.
 # UninstallSSHClient         # InstallSSHClient            # unset
 # InstallSSHServer           # UninstallSSHServer          # unset
+# InstallTelnetClient        # UninstallTelnetClient       # unset
 # InstallNET23               # UninstallNET23              # Je laisse tel quel car selon sa configuration on peut en avoir besoin, surtout pour les vieilles applications Windows 7. En mode Uninstall cela supprime toutes versions 2, 3 et 3.5 de Microsoft.NET.
 SetPhotoViewerAssociation    # UnsetPhotoViewerAssociation # Vous n’aimez pas le nouveau visionneur de photo de Windows 10 ? Moi aussi ; je préfère l’ancienne version, qui semble plus rapide.
 AddPhotoViewerOpenWith       # RemovePhotoViewerOpenWith   # Rajoute dans le menu contextuel d’une image (au clic droit donc) un menu pour ouvrir l’image avec l’ancienne visionneuse de photo Windows.
