@@ -40,9 +40,9 @@ SetUACLow                       # SetUACHigh
 DisableAdminShares              # EnableAdminShares
 # DisableFirewall               # EnableFirewall
 HideDefenderTrayIcon            # ShowDefenderTrayIcon
-# DisableDefender                 # EnableDefender
+# DisableDefender               # EnableDefender
 DisableDefenderCloud            # EnableDefenderCloud
-EnableCtrldFolderAccess         # DisableCtrldFolderAccess
+# EnableCtrldFolderAccess       # DisableCtrldFolderAccess
 EnableCIMemoryIntegrity         # DisableCIMemoryIntegrity
 EnableDefenderAppGuard          # DisableDefenderAppGuard
 HideAccountProtectionWarn       # ShowAccountProtectionWarn
@@ -104,7 +104,7 @@ DisableFastStartup              # EnableFastStartup
 DisableAutoRebootOnCrash        # EnableAutoRebootOnCrash
 
 ### UI Tweaks ###
-# DisableActionCenter             # EnableActionCenter
+# DisableActionCenter           # EnableActionCenter
 DisableLockScreen               # EnableLockScreen
 DisableLockScreenRS1            # EnableLockScreenRS1
 HideNetworkFromLockScreen       # ShowNetworkOnLockScreen
@@ -174,7 +174,7 @@ SetExplorerThisPC               # SetExplorerQuickAccess
 # HideDocumentsFromExplorer     # ShowDocumentsInExplorer
 # HideDownloadsFromThisPC       # ShowDownloadsInThisPC
 # HideDownloadsFromExplorer     # ShowDownloadsInExplorer
-# HideMusicFromThisPC           # ShowMusicInThisPC
+HideMusicFromThisPC           # ShowMusicInThisPC
 # HideMusicFromExplorer         # ShowMusicInExplorer
 # HidePicturesFromThisPC        # ShowPicturesInThisPC
 # HidePicturesFromExplorer      # ShowPicturesInExplorer
@@ -205,15 +205,15 @@ DisableFirstLogonAnimation      # EnableFirstLogonAnimation
 DisableMediaSharing             # EnableMediaSharing
 # EnableDeveloperMode           # DisableDeveloperMode
 # UninstallMediaPlayer          # InstallMediaPlayer
-UninstallInternetExplorer     # InstallInternetExplorer
+UninstallInternetExplorer       # InstallInternetExplorer
 # UninstallWorkFolders          # InstallWorkFolders
-UninstallHelloFace            # InstallHelloFace
-UninstallMathRecognizer       # InstallMathRecognizer
+UninstallHelloFace              # InstallHelloFace
+UninstallMathRecognizer         # InstallMathRecognizer
 # UninstallPowerShellV2         # InstallPowerShellV2
-UninstallPowerShellISE        # InstallPowerShellISE
+UninstallPowerShellISE          # InstallPowerShellISE
 # InstallLinuxSubsystem         # UninstallLinuxSubsystem
 # InstallHyperV                 # UninstallHyperV
-UninstallSSHClient            # InstallSSHClient
+UninstallSSHClient              # InstallSSHClient
 UninstallSSHServer              # InstallSSHServer
 # InstallTelnetClient           # UninstallTelnetClient
 # InstallNET23                  # UninstallNET23
