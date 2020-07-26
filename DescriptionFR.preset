@@ -142,14 +142,14 @@ DisableSearchAppInStore      # EnableSearchAppInStore      # Lorsque on essaie d
 DisableNewAppPrompt          # EnableNewAppPrompt          # Assez lié au précédent réglage : A l’ouverture d’un fichier donc l’extension est inconnue, une fenêtre s’affiche proposant d’aller sur le Windows Store pour télécharger une Apps capable d’ouvrir ce fichier.
 # HideRecentlyAddedApps      # ShowRecentlyAddedApps       # Mets en avant les applications nouvellement installées dans le menu Démarrer .
 # HideMostUsedApps           # ShowMostUsedApps            # Mets en tête de liste les applications souvent utilisées dans le menu Démarrer .
-SetWinXMenuPowerShell        # SetWinXMenuCmd              # Le raccourci win + x qui a le PS en default shell
+# SetWinXMenuPowerShell        # SetWinXMenuCmd            # Le raccourci win + x qui a le PS en default shell
 # SetControlPanelSmallIcons  # SetControlPanelLargeIcons   # SetControlPanelCategories # C’est le réglage de la taille des icônes du nouveau panneau de configuration Windows 10 (renommé simplement “Paramètres”. l’option Categories est celle par défaut : Elle regroupe les réglages par catégories.
 DisableShortcutInName        # EnableShortcutInName        # Affiche « Raccourci vers ... » sur les icônes du bureau, s’il s’agit de raccourcis.
 # HideShortcutArrow          # ShowShortcutArrow           # Affiche l’icône de petite flèche sur les éléments du bureau s’il s’agit de raccourcis.
 SetVisualFXPerformance       # SetVisualFXAppearance       # Différents réglages de l’affichage qui permettent de moins solliciter l’ordinateur. Ex : Pas d’effet d’ombrage, pas de vue du contenu d’une fenêtre lors de son déplacement, etc... Le mode Performance (SetVisualFXPerformance) est bien sur recommandé !
 # EnableTitleBarColor        # DisableTitleBarColor        # La coloration des fenêtres s’harmonise avec la couleur dominante du papier peint.
-SetAppsDarkMode              # SetAppsLightMode            # Vous allez souvent sur le réseau Thor et sur les interfaces d’administration des banques pour voler des N° de CB ? Activez le Dark Theme : L’explorateur et les menus de réglage de Windows seront à dominante sombre.
-SetSystemDarkMode            # SetSystemLightMode          # unset
+# SetAppsDarkMode              # SetAppsLightMode          # Vous allez souvent sur le réseau Thor et sur les interfaces d’administration des banques pour voler des N° de CB ? Activez le Dark Theme : L’explorateur et les menus de réglage de Windows seront à dominante sombre.
+# SetSystemDarkMode            # SetSystemLightMode        # unset
 # AddENKeyboard              # RemoveENKeyboard            # Rajoute un raccourci vers l’activation du clavier QWERTY dans la barre d’outils.
 # EnableNumlock              # DisableNumlock              # Très utile à activer : Le mode VERR NUM du pavé numérique est activé en mode Enable... Mais il me semble que l’activation saute si dans le BIOS (ou UEFI) cet option est aussi activée.
 # DisableEnhPointerPrecision # EnableEnhPointerPrecision   # Enable consiste à améliorer la précision du pointeur de la souris; ça “lisse” ses déplacements. Moi ça me sert mais peut-être pas pour un gamer ?
