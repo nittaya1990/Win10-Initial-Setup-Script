@@ -1,7 +1,7 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Default preset
 # Author: Disassembler <disassembler@dasm.cz>
-# Version: v3.9, 2020-04-02
+# Version: v3.10, 2020-07-15
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 
@@ -10,12 +10,12 @@ RequireAdmin
 
 ### Privacy Tweaks ### 
 DisableTelemetry             # EnableTelemetry             # On peut désactiver la télémétrie de Windows je ne vous ferais pas l’affront de vous expliquer à quoi ça sert
+DisableCortana               # EnableCortana               # Pas besoin de vous présenter le nouveau service de Windows 10 ; pendant de Siri sur Apple ou Google Voice sur Android. D’ailleurs vous qui utilisez le service Google voice saviez-vous que votre historique vocal est mémorisé?
 DisableWiFiSense             # EnableWiFiSense             # Connexion automatique aux réseaux WIFI partagés par vos contacts autorisés et ..vice versa ! à désactiver je pense, à moins que ; ultra-connecté, vous y voyiez un intérêt qui surpasse une certaine idée de la confidentialité
 # DisableSmartScreen         # EnableSmartScreen           # Envoie les URL que vous visitez sous Internet explorer ou Edge à Microsoft pour voir si ces URL sont malveillantes ou pas, originellement à des fins de bonnes intentions mais. Je dirais service portant atteinte à la confidentialité. Conseil : DisableSmartScreen
 # DisableWebSearch           # EnableWebSearch             # Sous Windows 10 la recherche dans la barre des taches va non seulement chercher en local mais aussi sur le Web ; Inutile car le reflexe de tout le monde est d’ouvrir un navigateur Web pour chercher sur internet ?
 DisableAppSuggestions        # EnableAppSuggestions        # Un mouchard qui selon ce que vous utilisez comme logiciel, vous suggère d’autres applications semblables ou complémentaires. Edit : D’ailleurs on dépasse la simple suggestion car certaines apps sont installées.
 DisableActivityHistory       # EnableActivityHistory       # Service utilisé notamment pour alimenter la fonction Chronologie d’activité (l’icône de la barre des tâches qui représente vaguement un « listing) Très utile pour qui voudrait espionner votre activité sur le PC ; s’il récupère votre mot de passe de session. https://support.microsoft.com/fr-fr/help/4468227/windows-10-activity-history-and-your-privacy-microsoft-privacy
-DisableBackgroundApps        # EnableBackgroundApps        # Les Apps de Windows 10 réagissent un peu comme les Apps de vos Smartphones : quand on les quittent elles tournent en arrière-plan pour recevoir des notifications, updates etc. Utile pour un antivirus, un tchatteur compulsif mais pour économiser les ressources d’un PC je le désactive.
 # DisableSensors             # EnableSensors               # aussi désactive différents capteurs comme l’auto-rotation, l’accélération, le capteur d’altitude qui sont des capteurs plutôt présents sur les terminaux mobiles (à part peut être le capteur de position présent par exemple sur les PC mi-portables mi-tablettes comme le Microsoft surface book et le Lenovo Yoga).
 DisableLocation              # EnableLocation              # Désactive la géolocalisation qui permet par exemple dans Maps de vous conseiller tel ou tel restaurant selon l’emplacement de votre PC, bien d’autres Apps universelles utilisent la géo-localisation.
 DisableMapUpdates            # EnableMapUpdates            # Mise à jour automatique de Maps ; Universal Apps de Windows 10 qui veut concurrencer Google Maps.
@@ -23,7 +23,6 @@ DisableFeedback              # EnableFeedback              # Recueille automatiq
 DisableTailoredExperiences   # EnableTailoredExperiences   # Encore un mouchard Microsoft, mais plus subtil car personnalisé (Tailored = Adapté). Cherche à vous suggérer des conseils d’utilisation, des astuces, selon votre profil.
 DisableAdvertisingID         # EnableAdvertisingID         # Publicités personnalisées émanant de votre propre utilisation de Windows, mais qui s’affichent sur votre bureau ou dans la zone de notification (Comme si ça ne suffisait pas d’avoir des Pubs sur le navigateur).
 DisableWebLangList           # EnableWebLangList           # Les sites internet compatibles peuvent vérifier votre langue préférée pour vous rediriger automatiquement vers leur version Française. Bof de toute façon le moindre moteur de recherche fera le travail.
-DisableCortana               # EnableCortana               # Pas besoin de vous présenter le nouveau service de Windows 10 ; pendant de Siri sur Apple ou Google Voice sur Android. D’ailleurs vous qui utilisez le service Google voice saviez-vous que votre historique vocal est mémorisé?
 # DisableBiometrics          # EnableBiometrics            # Depuis peu Windows 10 (nativement) peut vous identifier à partir de votre empreinte digitale, de la forme visage ou de votre iris : Plus besoin de rentrer vos identifiants pour ouvrir la session. Un service inutile si vous vous identifiez avec vos codes ou si vous considérez cela comme dangereux : Votre empreinte biométrique est quand même stocké sur votre PC, empreinte inviolable par nature et comme vous savez utilisée par la justice pour confondre quelqu’un.
 # DisableCamera              # EnableCamera                # Voilà une GPO (Stratégie de Groupe) facile à comprendre : Aucune caméra actuelle ou futur ne sera utilisable, par vous ou par un malware ayant ouvert un canal vidéo dérobé sur votre PC.
 # DisableMicrophone          # EnableMicrophone            # Désactive le micro
@@ -33,6 +32,24 @@ DisableDiagTrack             # EnableDiagTrack             # Enième service de 
 DisableWAPPush               # EnableWAPPush               # Vous êtes susceptible de recevoir des notifications textuelles WAP (Wireless Access Protocole), sympa lorsqu’on a activé l’App “Votre téléphone”. Edit : Finalement j’utilise cet fonctionnalité, au point où j’en suis de ma confidentialité. Info sur le protocole WAP : https://fr.wikipedia.org/wiki/Protocole_WAP.
 # EnableClearRecentFiles     # DisableClearRecentFiles     # Sur Enable l’historique des fichiers ouverts sera créée lors de l’utiliation du PC mais sera effacée quand vous fermerez la session ou éteindrez le PC . J’utilise beaucoup cette fonction notamment quand je vais avec l’explorateur Windows dans « Accès rapide ».
 # DisableRecentFiles         # EnableRecentFiles           # Comme l’option ci-dessus mais plus sécurisée car -réglée sur Disable– aucun log d’accès aux données n’est mémorisé, même en cours de session. Vous n’aurez donc aucune facilité à accéder à vos documents récents via Accès Rapide (Explorateur), Récemment ajouté (Menu démarrer) ou dans certaines applications comme Word, la liste des éléments récents listés en cliquant sur le menu Fichiers.
+
+### UWP Privacy Tweaks ###
+DisableUWPBackgroundApps        # EnableUWPBackgroundApps      # unset
+# DisableUWPVoiceActivation     # EnableUWPVoiceActivation     # unset
+# DisableUWPNotifications       # EnableUWPNotifications       # unset
+# DisableUWPAccountInfo         # EnableUWPAccountInfo         # unset
+# DisableUWPContacts            # EnableUWPContacts            # unset
+# DisableUWPCalendar            # EnableUWPCalendar            # unset
+# DisableUWPPhoneCalls          # EnableUWPPhoneCalls          # unset
+# DisableUWPCallHistory         # EnableUWPCallHistory         # unset
+# DisableUWPEmail               # EnableUWPEmail               # unset
+# DisableUWPTasks               # EnableUWPTasks               # unset
+# DisableUWPMessaging           # EnableUWPMessaging           # unset
+# DisableUWPRadios              # EnableUWPRadios              # unset
+# DisableUWPOtherDevices        # EnableUWPOtherDevices        # unset
+# DisableUWPDiagInfo            # EnableUWPDiagInfo            # unset
+# DisableUWPFileSystem          # EnableUWPFileSystem          # unset
+# DisableUWPSwapFile            # EnableUWPSwapFile            # unset
 
 ### Security Tweaks ### 
 # SetUACLow                  # SetUACHigh                  # Lorsqu’on ouvre une application, script, fichiers de commande etc... Susceptible d’accéder à des fonctions importantes de Windows, une fenêtre de confirmation s’ouvre vous demandant si vous voulez vraiment lancer l’exécutable. Cette protection est aussi active si une application en arrière-plan tente de se lancer. On pense aux virus donc important à laisser en High.
@@ -92,7 +109,6 @@ DisableAutorun               # EnableAutorun               # L’autoRun part du
 # DisableDefragmentation     # EnableDefragmentation       # Si vous avez un SSD, inutile d’autoriser la défragmentation automatique. Le cas contraire laissez l’option... Et pensez à changer votre disque dur système au profit d’un SSD.
 # DisableSuperfetch          # EnableSuperfetch            # Algorithme qui précharge les applications les plus utilisées dans la mémoire vive. Sur SSD là aussi ce service n’est pas requis sauf si vous avez beaucoup de RAM genre 8GO car la mémoire vive est plus rapide que les SSD, et sur disque dur classique... Il faut voir ! Certains disque durs particulièrement lents (PC portable surtout) associé à seulement 2 ou 4 Go de RAM sont ralentis par le superfetch selon énormément de variables dont l’âge du capitaine et la vitesse du vent. https://www.malekal.com/desactiver-superfetch-windows-10/
 # DisableIndexing            # EnableIndexing              # L’indexation des fichiers... Bof, je préfère largement Everything de VOIDTools.
-# DisableSwapFile            # EnableSwapFile              # C’est comme le PageFile, mais pour les Universal Apps de Windows. Le PageFile est de la mémoire virtuelle : Pour aller plus vite les applications lancées sont copiées et exécutées depuis la RAM, mais si la RAM est pleine, une partie du disque dur est utilisée : C’est cet espace sur le disque dur, beaucoup plus lent que la RAM q’on appelle le SwapFile. Je n’utilise pas D’Apps Windows...
 # DisableRecycleBin          # EnableRecycleBin            # unset
 EnableNTFSLongPaths          # DisableNTFSLongPaths        # Je suis sûr qu’un jour, en voulant faire une copie de dossier, Windows s’est plaint d’un nom de fichier trop long et vous a arrêté la copie! En effet ça arrive si le chemin d’accès (nom des dossiers et sous-dossiers + nom du fichier) fait plus de 260 caractères. Attention quand même de garder de bonne habitudes en évitant des nommages de dossiers/fichiers trop longs, surtout si vous utilisez certains services en ligne de backup qui ne supporteraient pas cette facilité.
 # DisableNTFSLastAccess      # EnableNTFSLastAccess        # A chaque ouverture d’un fichier, Windows enregistre sa date d’accès ; Utile pour connaitre l’historique via par exemple les « documents récents » sous Word, au lieu de chercher à chaque fois le-dit document avec l’explorateur. Par contre sur un disque dur cela peut ralentir son fonctionnement d’une pichenette.
@@ -152,6 +168,7 @@ ShowHiddenFiles              # HideHiddenFiles             # Je préfère visual
 # ShowFolderMergeConflicts   # HideFolderMergeConflicts    # unset
 EnableNavPaneExpand          # DisableNavPaneExpand        # Imaginez ; Vous ouvrez l’explorateur Windows et vous voyez deux sections : le panneau d’exploration à gauche, qui ne montre que les Dossiers et permet de cheminer efficacement, et la section de droite depuis laquelle vous pouvez ouvrir un fichier. C’est cette dernière section qu’on appelle « Dossier actif ». Par défaut si vous ouvrez un dossier depuis la section de droite, le panneau d’exploration ne « suit » pas. En Enable il suivra le cheminement du Dossier actif.
 # ShowNavPaneAllFolders      # HideNavPaneAllFolders       # Dans l’explorateur de fichier, l’option Show montre plus de dossiers sur le panneau de navigation, dont “Téléchargements” par exemple. Mais ça peut s’avérer fouillis.
+# ShowNavPaneLibraries       # HideNavPaneLibraries        # unset
 # EnableFldrSeparateProcess  # DisableFldrSeparateProcess  # En Disable le processus Explorer.exe est unique : Si l’explorateur plante ou cesse de répondre depuis une certaine fenêtre, touts les autres fenêtres ouvertes vont aussi planter. Mettre sur Enable va supprimer ce désavantage mais va plus solliciter votre PC car plusieurs processus explorer (autant que de dossiers ouverts) vont s’exécuter.
 # EnableRestoreFldrWindows   # DisableRestoreFldrWindows   # En Enable les dossiers ou applications précédemment ouverts avant l’extinction de Windows vont se ré-ouvrir au redémarrage... Ça ressemble un peu à une mise en veille du pauvre. A voir selon votre utilisation moi je désactive car je n’apprécie cette facilité qu’en mettant en veille mon PC.
 # ShowEncCompFilesColor      # HideEncCompFilesColor       # Dans l’explorateur les fichiers compressés seront en bleu (je parle de la fonction Windows intégrée, transparente car on ne se rend pas compte de l’effet, pas de la compression en Zip). Les fichiers encryptés seront eux représentés en vert.
@@ -182,6 +199,7 @@ HideVideosFromThisPC         # ShowVideosInThisPC          # unset
 # HideVideosFromExplorer     # ShowVideosInExplorer        # unset
 Hide3DObjectsFromThisPC      # Show3DObjectsInThisPC       # unset
 # Hide3DObjectsFromExplorer  # Show3DObjectsInExplorer     # unset
+# HideNetworkFromExplorer    # ShowNetworkInExplorer       # unset
 # HideIncludeInLibraryMenu   # ShowIncludeInLibraryMenu    # Affiche dans le volet de gauche de l’explorateur le dossier “Bibliothèque”.
 # HideGiveAccessToMenu       # ShowGiveAccessToMenu        # Volet gauche de l’explorateur au clic droit : Affiche un menu qui permet de partager un dossier. S’applique à Windows 10 jusqu’à sa version 1703 nommé Creator Update.
 # HideShareMenu              # ShowShareMenu               # Pareil que l’option ci-dessus mais s’applique à la version 1709 de Windows 10 Fall Creator... Microsoft se cherche...
@@ -203,6 +221,7 @@ DisableEdgeShortcutCreation  # EnableEdgeShortcutCreation  # Disable : Après ce
 DisableIEFirstRun            # EnableIEFirstRun            # Vous utilisez toujours Internet Explorer ? Et bien à son tout premier lancement vous savez qu’il vous pose quelques questions, et bien là ce ne sera plus le cas.
 DisableFirstLogonAnimation   # EnableFirstLogonAnimation   # A l’installation de Windows ou lors d’une mise à jour majeure, Windows vous dis “Bonjour!! Comme ça va bien?!”. Personnellement j’aime bien le texte “Laissez nous tout”. plus d’infos ici.
 DisableMediaSharing          # EnableMediaSharing          # Quand le partage de contenu multimédia est activé sur le PC 1, les autres PC sur le même réseau local verront en parcourant le réseau local une icône nommée “périphérique média” et le nom du PC qui diffuse. Au double clic les médias partagés du PC 1 seront consultables. Avec Onedrive et autres services de partage on n’a plus besoin de cette fonctionnalité.
+# DisableMediaOnlineAccess   # EnableMediaOnlineAccess     # unset
 # EnableDeveloperMode        # DisableDeveloperMode        # Active le mode developer qui est dans les paramètres windows
 # UninstallMediaPlayer       # InstallMediaPlayer          # Désinstalle Windows Media player : La vieille version qui ne lit pas grand chose et déjà présente sous Windows XP.
 # UninstallInternetExplorer  # InstallInternetExplorer     # L’ancêtre, Mais il vaut mieux laisser tel quel, certains services en ligne, surtout des services de niche dédiés aux professionnels ne sont compatibles qu’avec IE.
