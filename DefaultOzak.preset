@@ -46,7 +46,7 @@ DisableUWPEmail                 # EnableUWPEmail
 DisableUWPTasks                 # EnableUWPTasks
 DisableUWPMessaging             # EnableUWPMessaging
 DisableUWPRadios                # EnableUWPRadios
-DisableUWPOtherDevices        # EnableUWPOtherDevices
+DisableUWPOtherDevices          # EnableUWPOtherDevices
 DisableUWPDiagInfo              # EnableUWPDiagInfo
 # DisableUWPFileSystem          # EnableUWPFileSystem
 # DisableUWPSwapFile            # EnableUWPSwapFile
@@ -58,7 +58,7 @@ DisableAdminShares              # EnableAdminShares
 # DisableFirewall               # EnableFirewall
 HideDefenderTrayIcon            # ShowDefenderTrayIcon
 # DisableDefender               # EnableDefender
-DisableDefenderCloud            # EnableDefenderCloud
+# DisableDefenderCloud          # EnableDefenderCloud
 # EnableCtrldFolderAccess       # DisableCtrldFolderAccess
 EnableCIMemoryIntegrity         # DisableCIMemoryIntegrity
 EnableDefenderAppGuard          # DisableDefenderAppGuard
@@ -191,7 +191,7 @@ SetExplorerThisPC               # SetExplorerQuickAccess
 # HideDocumentsFromExplorer     # ShowDocumentsInExplorer
 # HideDownloadsFromThisPC       # ShowDownloadsInThisPC
 # HideDownloadsFromExplorer     # ShowDownloadsInExplorer
-HideMusicFromThisPC           # ShowMusicInThisPC
+HideMusicFromThisPC             # ShowMusicInThisPC
 # HideMusicFromExplorer         # ShowMusicInExplorer
 # HidePicturesFromThisPC        # ShowPicturesInThisPC
 # HidePicturesFromExplorer      # ShowPicturesInExplorer
@@ -221,7 +221,7 @@ DisableEdgeShortcutCreation     # EnableEdgeShortcutCreation
 DisableIEFirstRun               # EnableIEFirstRun
 DisableFirstLogonAnimation      # EnableFirstLogonAnimation
 DisableMediaSharing             # EnableMediaSharing
-DisableMediaOnlineAccess      # EnableMediaOnlineAccess
+DisableMediaOnlineAccess        # EnableMediaOnlineAccess
 # EnableDeveloperMode           # DisableDeveloperMode
 # UninstallMediaPlayer          # InstallMediaPlayer
 UninstallInternetExplorer       # InstallInternetExplorer
