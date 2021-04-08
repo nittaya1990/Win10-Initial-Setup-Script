@@ -52,7 +52,7 @@ DisableUWPDiagInfo              # EnableUWPDiagInfo
 # DisableUWPSwapFile            # EnableUWPSwapFile
 
 ### Security Tweaks ###
-SetUACLow                       # SetUACHigh
+SetUACHigh                      # SetUACLow
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
 # DisableFirewall               # EnableFirewall
@@ -253,7 +253,7 @@ DisableCtrlAltDelLogin          # EnableCtrlAltDelLogin
 
 ### Unpinning ###
 UnpinStartMenuTiles
-# UnpinTaskbarIcons
+UnpinTaskbarIcons
 
 ### Auxiliary Functions ###
 WaitForKey
